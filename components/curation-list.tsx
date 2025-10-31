@@ -43,17 +43,17 @@ export default function CurationList() {
   }
 
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-muted/30 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         {/* 헤더 */}
         <div className="mb-12 md:mb-16">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
             <div className="text-center sm:text-left">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light tracking-wider text-foreground mb-4 uppercase">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal tracking-wider text-foreground mb-4 uppercase">
                 CURATION LIST
               </h2>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-sans max-w-2xl">
-                우리의식탁만의 큐레이션으로 고민 없이 맛있는 식탁을 차려보세요.
+                저희만의 레시피의 큐레이션으로 고민 없이 맛있는 식탁을 차려보세요.
               </p>
             </div>
             <Link

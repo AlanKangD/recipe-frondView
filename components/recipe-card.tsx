@@ -18,11 +18,11 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
   return (
     <Link
       href={`/recipe/${recipe.id}`}
-      className="group block"
+      className="group block transition-transform duration-200 ease-in-out hover:scale-[1.02]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-4">
+      <div className="relative overflow-hidden rounded-lg aspect-[4/3] mb-4 shadow-sm group-hover:shadow-md transition-shadow duration-200">
         <Image
           src={recipe.image || "/placeholder.svg"}
           alt={recipe.title}
