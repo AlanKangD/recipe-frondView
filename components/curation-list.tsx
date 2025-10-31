@@ -1,64 +1,153 @@
-import CurationCard from "./curation-card"
+"use client"
+
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import CurationCard from "./curation-card"
 
 // 샘플 데이터 - 실제로는 API에서 가져옵니다
 const curations = [
   {
     id: 1,
     title: "주말 브런치 특집",
-    description: "여유로운 주말 아침을 위한 브런치 레시피",
     image: "/weekend-brunch-spread.jpg",
-    recipeCount: 12,
   },
   {
     id: 2,
     title: "한 그릇 요리",
-    description: "간편하게 한 그릇으로 완성하는 요리",
     image: "/one-bowl-meal-korean.jpg",
-    recipeCount: 18,
   },
   {
     id: 3,
     title: "건강한 샐러드",
-    description: "신선하고 영양 가득한 샐러드 모음",
     image: "/healthy-fresh-salad.jpg",
-    recipeCount: 15,
   },
   {
     id: 4,
     title: "집들이 요리",
-    description: "손님 초대에 완벽한 요리 레시피",
     image: "/party-food-spread.jpg",
-    recipeCount: 20,
   },
 ]
 
 export default function CurationList() {
-  return (
-    <section className="py-20 px-4 bg-background">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-serif font-light tracking-wider text-foreground mb-4">
-            CURATION LIST
-          </h2>
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl mx-auto mb-8">
-            우리의식탁만의 큐레이션으로 고민 없이 맛있는 식탁을 차려보세요.
-          </p>
+  const scrollLeft = () => {
+    const container = document.getElementById("curation-slider")
+    if (container) {
+      container.scrollBy({ left: -320, behavior: "smooth" })
+    }
+  }
 
-          <Link
-            href="/curations"
-            className="inline-flex items-center gap-2 text-sm text-primary hover:text-accent transition-colors group"
-          >
-            더 많은 큐레이션 보러가기
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+  const scrollRight = () => {
+    const container = document.getElementById("curation-slider")
+    if (container) {
+      container.scrollBy({ left: 320, behavior: "smooth" })
+    }
+  }
+
+  return (
+    <section className="bg-background py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* 헤더 */}
+        <div className="mb-12 md:mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+            <div className="text-center sm:text-left">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light tracking-wider text-foreground mb-4 uppercase">
+                CURATION LIST
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-sans max-w-2xl">
+                우리의식탁만의 큐레이션으로 고민 없이 맛있는 식탁을 차려보세요.
+              </p>
+            </div>
+            <Link
+              href="/curations"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-sans text-sm md:text-base whitespace-nowrap self-center sm:self-start"
+            >
+              <span>더 많은 레시피 보러가기</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-4 h-4"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </Link>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {curations.map((curation) => (
-            <CurationCard key={curation.id} curation={curation} />
-          ))}
+        {/* 큐레이션 카드 슬라이더 */}
+        <div className="relative">
+          {/* 데스크톱: 그리드 레이아웃 */}
+          <div className="hidden lg:grid lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+            {curations.map((curation) => (
+              <CurationCard key={curation.id} id={curation.id} title={curation.title} image={curation.image} />
+            ))}
+          </div>
+
+          {/* 모바일/태블릿: 슬라이더 */}
+          <div className="lg:hidden relative">
+            <div
+              id="curation-slider"
+              className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 scrollbar-hide"
+            >
+              {curations.map((curation) => (
+                <div key={curation.id} className="snap-start flex-shrink-0">
+                  <CurationCard id={curation.id} title={curation.title} image={curation.image} />
+                </div>
+              ))}
+            </div>
+
+            {/* 네비게이션 버튼 */}
+            {curations.length > 2 && (
+              <>
+                <button
+                  onClick={scrollLeft}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-background/90 hover:bg-background shadow-lg rounded-full p-2 z-10 hidden sm:block"
+                  aria-label="이전 큐레이션 보기"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
+                  </svg>
+                </button>
+                <button
+                  onClick={scrollRight}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-background/90 hover:bg-background shadow-lg rounded-full p-2 z-10 hidden sm:block"
+                  aria-label="다음 큐레이션 보기"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </section>
