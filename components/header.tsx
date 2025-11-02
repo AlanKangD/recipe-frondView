@@ -4,17 +4,17 @@ export default function Header() {
   return (
     <header className="border-t border-b border-[#8B4513] bg-white">
       <div className="container mx-auto px-4 py-6 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-serif font-bold text-black">
+        <Link href="/" className="text-2xl font-serif font-bold text-[#8B4513]">
           앨런 레시피
         </Link>
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/recipes" className="text-sm text-black hover:text-gray-700 transition-colors">
+          <Link href="/recipes" className="text-sm text-[#8B4513] hover:text-[#A0522D] transition-colors">
             레시피
           </Link>
-          <Link href="/curations" className="text-sm text-black hover:text-gray-700 transition-colors">
+          <Link href="/curations" className="text-sm text-[#8B4513] hover:text-[#A0522D] transition-colors">
             큐레이션
           </Link>
-          <Link href="/about" className="text-sm text-black hover:text-gray-700 transition-colors">
+          <Link href="/about" className="text-sm text-[#8B4513] hover:text-[#A0522D] transition-colors">
             소개
           </Link>
         </nav>

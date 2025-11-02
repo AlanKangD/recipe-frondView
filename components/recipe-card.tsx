@@ -40,10 +40,10 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">
+        <h3 className="text-xl font-serif text-[#8B4513] group-hover:text-[#A0522D] transition-colors">
           {recipe.title}
         </h3>
-        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+        <div className="flex items-center gap-4 text-sm text-[#8B4513]/70">
           <span>{recipe.cookTime}</span>
           <span>•</span>
           <span>{recipe.difficulty}</span>

@@ -49,16 +49,16 @@ export default function CurationList() {
         <div className="mb-12 md:mb-16">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
             <div className="text-center sm:text-left">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal tracking-wider text-foreground mb-4 uppercase">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal tracking-wider text-[#8B4513] mb-4 uppercase">
                 CURATION LIST
               </h2>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-sans max-w-2xl">
+              <p className="text-base md:text-lg text-[#8B4513]/80 leading-relaxed font-sans max-w-2xl">
                 저희만의 레시피의 큐레이션으로 고민 없이 맛있는 식탁을 차려보세요.
               </p>
             </div>
             <Link
               href="/curations"
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-sans text-sm md:text-base whitespace-nowrap self-center sm:self-start"
+              className="flex items-center gap-2 text-[#8B4513] hover:text-[#A0522D] transition-colors font-sans text-sm md:text-base whitespace-nowrap self-center sm:self-start"
             >
               <span>더 많은 레시피 보러가기</span>
               <svg
@@ -115,7 +115,7 @@ export default function CurationList() {
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={2}
-                    stroke="currentColor"
+                    stroke="#8B4513"
                     className="w-5 h-5"
                   >
                     <path
@@ -135,7 +135,7 @@ export default function CurationList() {
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={2}
-                    stroke="currentColor"
+                    stroke="#8B4513"
                     className="w-5 h-5"
                   >
                     <path
