@@ -37,7 +37,7 @@ export default function RecipesForYou() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
             <div className="text-center sm:text-left">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal tracking-wider text-[#8B4513] mb-4 uppercase">
-                RECIPES FOR YOU
+              Chef’s Choice: Top 3
               </h2>
               <p className="text-base md:text-lg text-[#8B4513]/80 leading-relaxed font-sans max-w-2xl">
                 맞춤추천 레시피를 둘러보세요.

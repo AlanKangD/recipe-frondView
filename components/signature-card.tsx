@@ -7,10 +7,10 @@ type Props = {
   image: string
 }
 
-export default function CurationCard({ id, title, image }: Props) {
+export default function SignatureCard({ id, title, image }: Props) {
   return (
     <Link
-      href={`/curation/${id}`}
+      href={`/signature/${id}`}
       className="group relative block overflow-hidden rounded-lg aspect-[16/10] min-w-[280px] sm:min-w-0 shadow-sm hover:shadow-md transition-all duration-200 ease-in-out hover:scale-[1.02]"
     >
       <Image

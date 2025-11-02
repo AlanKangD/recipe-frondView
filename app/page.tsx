@@ -1,13 +1,13 @@
-import RecipesForYou from "@/components/recipes-for-you"
-import CurationList from "@/components/curation-list"
 import Header from "@/components/header"
+import RecipesForYou from "@/components/recipes-for-you"
+import SignatureList from "@/components/signature-list"
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
       <RecipesForYou />
-      <CurationList />
+      <SignatureList />
     </main>
   )
 }

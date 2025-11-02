@@ -1,11 +1,11 @@
-import { notFound } from "next/navigation"
+import RecipeCard from "@/components/recipe-card"
+import { ArrowLeft } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
-import RecipeCard from "@/components/recipe-card"
+import { notFound } from "next/navigation"
 
 // 샘플 데이터
-const curations: Record<string, any> = {
+const signatures: Record<string, any> = {
   "1": {
     id: 1,
     title: "주말 브런치 특집",
@@ -38,17 +38,17 @@ const curations: Record<string, any> = {
   },
 }
 
-export default function CurationPage({ params }: { params: { id: string } }) {
-  const curation = curations[params.id]
+export default function SignaturePage({ params }: { params: { id: string } }) {
+  const signature = signatures[params.id]
 
-  if (!curation) {
+  if (!signature) {
     notFound()
   }
 
   return (
     <main className="min-h-screen bg-background">
       <div className="relative h-[400px] md:h-[500px]">
-        <Image src={curation.image || "/placeholder.svg"} alt={curation.title} fill className="object-cover" priority />
+        <Image src={signature.image || "/placeholder.svg"} alt={signature.title} fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
         <div className="absolute inset-0 flex items-end">
@@ -60,9 +60,9 @@ export default function CurationPage({ params }: { params: { id: string } }) {
               <ArrowLeft className="w-4 h-4" />
               홈으로 돌아가기
             </Link>
-            <h1 className="text-4xl md:text-6xl font-serif text-white mb-4 text-balance">{curation.title}</h1>
+            <h1 className="text-4xl md:text-6xl font-serif text-white mb-4 text-balance">{signature.title}</h1>
             <p className="text-white/90 text-lg md:text-xl max-w-3xl leading-relaxed text-pretty">
-              {curation.description}
+              {signature.description}
             </p>
           </div>
         </div>
@@ -70,7 +70,7 @@ export default function CurationPage({ params }: { params: { id: string } }) {
 
       <div className="container mx-auto px-4 py-16 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {curation.recipes.map((recipe: any) => (
+          {signature.recipes.map((recipe: any) => (
             <RecipeCard key={recipe.id} recipe={recipe} />
           ))}
         </div>
