@@ -38,8 +38,9 @@ const signatures: Record<string, any> = {
   },
 }
 
-export default function SignaturePage({ params }: { params: { id: string } }) {
-  const signature = signatures[params.id]
+export default async function SignaturePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const signature = signatures[id]
 
   if (!signature) {
     notFound()
