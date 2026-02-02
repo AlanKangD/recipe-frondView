@@ -1,0 +1,32 @@
+# dependencies
+node_modules
+.pnpm-store
+
+# build
+.next
+out
+build
+
+# git
+.git
+.gitignore
+
+# env
+.env*
+!.env.example
+
+# ide / os
+.DS_Store
+*.log
+.vscode
+.idea
+
+# vercel
+.vercel
+
+# misc
+README.md
+*.md
+Dockerfile*
+.dockerignore
+docker-compose*
